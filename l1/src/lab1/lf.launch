@@ -1,0 +1,11 @@
+<launch>
+	<node pkg='lab1' type='square.py' name='donatello' output='screen'>
+		<param name='speed' value='1.0' type='double' />
+	</node>
+
+	<node pkg='turtlesim' type='turtlesim_node' name='leonardo' output='screen'>
+		<param name='background_b' value='0' />
+		<param name='background_g' value='255' />
+		<param name='background_r' value='0' />
+	</node>
+</launch>
