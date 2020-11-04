@@ -1,11 +1,21 @@
 <launch>
-	<node pkg='lab1' type='square.py' name='donatello' output='screen'>
-		<param name='speed' value='1.0' type='double' />
-	</node>
+    <arg name="turtle_1" default="turtle_1" />
+    <arg name="turtle_2" default="turtle_2" />
 
-	<node pkg='turtlesim' type='turtlesim_node' name='leonardo' output='screen'>
-		<param name='background_b' value='0' />
-		<param name='background_g' value='255' />
-		<param name='background_r' value='0' />
-	</node>
+    <node pkg="turtlesim" type="turtlesim_node" name="leonardo" output="screen">
+        <remap from="/turtle1/pose" to="$(arg turtle_1)/pose" />
+    </node>
+    
+    <node pkg="lab1" type="spawner.py" name="spawner" output="screen">
+        <param name="turtle_2" value="$(arg turtle_2)" type="string" />
+    </node>
+
+    <node pkg="turtlesim" type="turtle_teleop_key" name="turtle_teleop_key" output="screen">
+    </node>
+
+    <node pkg="lab1" type="main.py" name="main" output="screen">
+        <remap from="/turtle1/pose" to="$(arg turtle_1)/pose" />
+        <remap from="/turtle2/pose" to="$(arg turtle_2)/pose" />
+        <remap from="/turtle2/cmd_vel" to="$(arg turtle_2)/cmd_vel" />
+    </node>
 </launch>

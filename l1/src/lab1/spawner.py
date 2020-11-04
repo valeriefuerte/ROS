@@ -9,5 +9,5 @@ rospy.init_node('turtle2_spawner_node')
 rospy.wait_for_service('/spawn')
 spawn_func = rospy.ServiceProxy('/spawn', Spawn)
 
-turtle_name = rospy.get_param('~turtle2')
+turtle_name = rospy.get_param('~turtle_2')
 turtle2 = spawn_func(1.0, 1.0, 1.0, turtle_name)
