@@ -38,7 +38,7 @@ cmake --build .
 make test
 
 # add to path
-echo 'set $PATH=$PATH:/home/os-lab/mola/build/bin' >> ~/.bashrc
+echo 'set $PATH=$PATH:$HOME/mola/build/bin' >> ~/.bashrc
 
 # Updating sources for rebuilding
 # cd MOLA_SOURCE_ROOT_DIR
