@@ -12,10 +12,11 @@ class DontCrushDuckieTaskSolution(TaskSolution):
         obs, _, _, _ = env.step([0,0])
         # convect in for work with cv
         img = cv2.cvtColor(np.ascontiguousarray(obs), cv2.COLOR_BGR2RGB)
-        
+
         # add here some image processing
-        lower_yellow = np.array([150,150,0])
-        upper_yellow = np.array([255,255,0])
+        lower_yellow = np.array([0, 150, 150])
+        upper_yellow = np.array([150, 255, 255])
+
 
         condition = True
         while condition:
